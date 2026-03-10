@@ -1,0 +1,41 @@
+from dotenv import load_dotenv
+import os
+from langchain_groq import ChatGroq
+# from langchain_google_genai import ChatGoogleGenAI
+# from langchain_mistralai import ChatMistralAI
+
+load_dotenv()  # Load environment variables from .env file
+
+# This is for Groq LLM
+GROQ_API_KEY = os.getenv("GROQ_API_KEY") # load the api key from environment variable
+
+groq_llm = ChatGroq(api_key=GROQ_API_KEY,
+    model = "llama-3.1-8b-instant")
+response  = groq_llm.invoke("What are the tactics for quiting porn addiction? List them in a sequence also explain in detail also tell me the most effective one")
+print(response.content)
+
+# print("\n\n\n")
+
+# This is for Google Gemini Pro LLM
+# GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY") # load the api key from environment variable
+
+# google_llm = ChatGoogleGenAI(api_key=GOOGLE_API_KEY,
+#     model = "gemini-pro")
+# response2 = google_llm.invoke("What are the tactics for quiting porn addiction? List them in a sequence also explain in detail also tell me the most effective one")
+# print(response2.content)
+
+# with open("response.txt",'w') as f:
+#     f.write(response.content)
+
+# This is for Mistral LLM
+# MISTRAL_API_KEY = os.getenv('MISTRAL_API_KEY')
+
+# make sure we actually got a key, otherwise the library will raise a confusing error
+
+# instantiate and call the model, then print the result
+# mistral_llm = ChatMistralAI(api_key=MISTRAL_API_KEY,
+#     model="mistral-7b-instant")
+# response3 = mistral_llm.invoke(
+#     "What are the tactics for quiting porn addiction? List them in a sequence also explain in detail also tell me the most effective one"
+# )
+# print(response3.content)
