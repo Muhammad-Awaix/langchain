@@ -1,5 +1,7 @@
 from langchain_huggingface import ChatHuggingFace, HuggingFaceEndpoint
 from langchain_core.prompts import PromptTemplate
+from dotenv import load_dotenv
+load_dotenv()  # Load environment variables from .env file
 from langchain_core.parsers import JsonOutputParser
 
 llm = HuggingFaceEndpoint(
